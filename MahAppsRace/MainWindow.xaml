@@ -1,0 +1,49 @@
+﻿<controls:MetroWindow x:Class="MahAppsRace.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary>
+            <dialogs:CustomDialog x:Key="CustomDialogTest"
+                                 x:Name="CustomTestDialog"
+                                 Title="This dialog allows arbitrary content.">
+                <TextBlock x:Name="MessageTextBlock"
+                           Height="200"
+                           Foreground="{DynamicResource AccentColorBrush}"
+                           Text="Transient" />
+            </dialogs:CustomDialog>
+
+            <dialogs:CustomDialog x:Key="CustomCloseDialogTest"
+                                 x:Name="CustomCloseDialogTest"
+                                 Title="Custom Dialog which is awaitable">
+                <StackPanel>
+                    <TextBlock Height="30"
+                               Foreground="{DynamicResource AccentColorBrush}"
+                               Text="This dialog allows arbitrary content. You have to close it yourself by clicking the close button below."
+                               TextWrapping="Wrap" />
+                    <Button Click="CloseCustomDialog" Content="Close Me!" />
+                </StackPanel>
+            </dialogs:CustomDialog>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button Content="Open dialog" Click="OpenCustomDialog"/>
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+    
+    <Grid/>
+</controls:MetroWindow>
+
+
+
+
+
+
+
